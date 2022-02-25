@@ -3,9 +3,5 @@
 </script>
 
 <main>
-  <h1 class="text-blue-500">Hello {name}!</h1>
-  <p>
-    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-    how to build Svelte apps.
-  </p>
+  <button>配置設定</button>
 </main>
