@@ -3,7 +3,7 @@
   import { NONE } from '../game/constant';
   import type { Game } from '../game/game';
   import HistoryController from './HistoryController.svelte';
-  import { toast } from '$modules/toast';
+  import { toast } from '../modules/toast';
   import PromoteModal from './game/PromoteModal.svelte';
   import History from './History.svelte';
 
