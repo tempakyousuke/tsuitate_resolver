@@ -5,6 +5,12 @@
 
 fn main() {
   tauri::Builder::default()
+    .invoke_handler(tauri::generate_handler![resolve])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
+}
+
+#[tauri::command]
+fn resolve() -> String {
+  println!("Message from Rust");
 }
