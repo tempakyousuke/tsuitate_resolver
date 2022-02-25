@@ -6,7 +6,6 @@
   import { WHITE, BLACK } from '../game/constant';
   import { createEventDispatcher } from 'svelte';
   import SquareFill from './SquareFill.svelte';
-  import PlayerStatus from './PlayerStatus.svelte';
 
   export let game: Game;
   export let className = '';
@@ -16,11 +15,6 @@
   export let showMovable = false;
   export let fillSquare = false;
   export let reverse = false;
-  export let showLife = false;
-  export let blackName = '';
-  export let whiteName = '';
-  export let blackTime = 0;
-  export let whiteTime = 0;
 
   let capRef;
   let boardRef;
@@ -102,23 +96,10 @@
     reverse,
     lastHistory: game.lastHistory,
   };
-
-  const playerStatusProps = {
-    reverse,
-    blackName,
-    whiteName,
-    blackLife: game.blackLife,
-    whiteLife: game.whiteLife,
-  };
 </script>
 
 <div class={className}>
   {#key boardHeight}
-    {#if showLife}
-      {#key blackTime + whiteTime}
-        <PlayerStatus {...playerStatusProps} {blackTime} {whiteTime} upper />
-      {/key}
-    {/if}
     <Caps
       {...upperCapProps}
       {squareHeight}
@@ -190,16 +171,6 @@
       on:cap
       {reverse}
     />
-    {#if showLife}
-      {#key blackTime + whiteTime}
-        <PlayerStatus
-          {...playerStatusProps}
-          {blackTime}
-          {whiteTime}
-          upper={false}
-        />
-      {/key}
-    {/if}
   {/key}
 </div>
 
