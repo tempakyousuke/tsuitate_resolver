@@ -8,12 +8,10 @@
   game.tsumeInitialize();
 
   const resolve = async () => {
-    game.cap;
-    game.board;
     const res = await invoke('resolve', {
-      blackCap: game.cap[1],
-      whiteCap: game.cap[2],
-      board: game.board,
+      blackCap: game.rustInputBlackCap,
+      whiteCap: game.rustInputWhiteCap,
+      board: game.rustInputBoard,
     });
     console.log(res);
   };
