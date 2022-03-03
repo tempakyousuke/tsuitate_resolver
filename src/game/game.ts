@@ -462,9 +462,9 @@ export class Game extends GameAbility {
       kyo: cap[2],
       kei: cap[3],
       gin: cap[4],
-      kin: cap[5],
-      hisha: cap[6],
-      kaku: cap[7],
+      kin: cap[6],
+      hisha: cap[7],
+      kaku: cap[5],
     };
   }
 
@@ -475,9 +475,9 @@ export class Game extends GameAbility {
       kyo: cap[2],
       kei: cap[3],
       gin: cap[4],
-      kin: cap[5],
-      hisha: cap[6],
-      kaku: cap[7],
+      kin: cap[6],
+      hisha: cap[7],
+      kaku: cap[5],
     };
   }
 
