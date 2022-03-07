@@ -283,7 +283,7 @@ impl Board {
   }
 }
 
-pub fn get_square(board: Board, number: i32) -> Vec<i32> {
+pub fn get_square(&board: Board, number: i32) -> Vec<i32> {
   match number {
     0 => board.sq00,
     1 => board.sq01,
@@ -368,4 +368,20 @@ pub fn get_square(board: Board, number: i32) -> Vec<i32> {
     80 => board.sq80,
     _ => vec![0, 0],
   }
+}
+
+fn get_king_square(board: Board) -> i32 {
+  let squares = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+    36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+    60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+  ];
+  let mut result = 81;
+  for i in squares {
+    let square = get_square(board, i);
+    if square[0] == 8 {
+      result = i;
+    }
+  }
+  result
 }
