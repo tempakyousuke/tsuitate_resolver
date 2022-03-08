@@ -366,7 +366,7 @@ pub fn get_square(board: &Board, number: i32) -> &Vec<i32> {
     78 => &board.sq78,
     79 => &board.sq79,
     80 => &board.sq80,
-    _ => vec![0, 0],
+    _ => &board.sq00,
   }
 }
 
