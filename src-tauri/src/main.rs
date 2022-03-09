@@ -15,5 +15,5 @@ fn main() {
 #[tauri::command]
 fn resolve(black_cap: board::InputCap, white_cap: board::InputCap, board: board::InputBoard) {
   let new_board = board::Board::new(white_cap, black_cap, board);
-  println!("{:?}", new_board);
+  board::check_tsumi(&new_board, 2);
 }

@@ -386,3 +386,40 @@ pub fn get_king_square(board: &Board, owner: i32) -> i32 {
   }
   result
 }
+
+pub fn check_tsumi(board: &Board, owner: i32) {
+  let checking_square = get_checking_squares(board, owner);
+  println!("{:?}", checking_square);
+}
+
+pub fn get_checking_squares(board: &Board, owner: i32) -> Vec<Vec<i32>> {
+  let king_square = get_king_square(&board, owner);
+  let mut result: Vec<Vec<i32>> = vec![];
+  // 桂馬チェック
+  if owner == 1 {
+    // 王が先手
+    let keima_square_num1 = king_square - 11;
+    let keima_square_num2 = king_square + 7;
+    let keima_square1 = get_square(&board, keima_square_num1);
+    let keima_square2 = get_square(&board, keima_square_num2);
+    if keima_square1[0] == 3 && keima_square1[1] == 2 {
+      result.push(vec![keima_square_num1, 3])
+    }
+    if keima_square2[0] == 3 && keima_square2[1] == 2 {
+      result.push(vec![keima_square_num2, 3])
+    }
+  } else {
+    // 王が後手
+    let keima_square_num1 = king_square - 7;
+    let keima_square_num2 = king_square + 11;
+    let keima_square1 = get_square(&board, keima_square_num1);
+    let keima_square2 = get_square(&board, keima_square_num2);
+    if keima_square1[0] == 3 && keima_square1[1] == 1 {
+      result.push(vec![keima_square_num1, 3])
+    }
+    if keima_square2[0] == 3 && keima_square2[1] == 1 {
+      result.push(vec![keima_square_num2, 3])
+    }
+  }
+  result
+}
