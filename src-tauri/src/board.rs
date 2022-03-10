@@ -395,6 +395,7 @@ pub fn check_tsumi(board: &Board, owner: i32) {
 pub fn get_checking_squares(board: &Board, owner: i32) -> Vec<Vec<i32>> {
   let king_square = get_king_square(&board, owner);
   let mut result: Vec<Vec<i32>> = vec![];
+
   // 桂馬チェック
   if owner == 1 {
     // 王が先手
@@ -419,6 +420,49 @@ pub fn get_checking_squares(board: &Board, owner: i32) -> Vec<Vec<i32>> {
     }
     if keima_square2[0] == 3 && keima_square2[1] == 1 {
       result.push(vec![keima_square_num2, 3])
+    }
+  }
+
+  // 歩の動きチェック
+  if owner == 1 {
+    let checking_square_num = king_square - 1;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        1 => result.push(vec![checking_square_num, 1]),
+        2 => result.push(vec![checking_square_num, 2]),
+        3 => result.push(vec![checking_square_num, 3]),
+        4 => result.push(vec![checking_square_num, 4]),
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square + 1;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        1 => result.push(vec![checking_square_num, 1]),
+        2 => result.push(vec![checking_square_num, 2]),
+        3 => result.push(vec![checking_square_num, 3]),
+        4 => result.push(vec![checking_square_num, 4]),
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
     }
   }
   result
