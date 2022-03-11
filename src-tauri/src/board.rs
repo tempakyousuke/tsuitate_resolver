@@ -465,5 +465,231 @@ pub fn get_checking_squares(board: &Board, owner: i32) -> Vec<Vec<i32>> {
       }
     }
   }
+  // 右斜め上からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square - 10;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square + 10;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 左斜め上からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square + 8;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square - 8;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 右斜め下からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square - 8;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square + 8;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 左斜め下からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square + 10;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square - 10;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        4 => result.push(vec![checking_square_num, 4]),
+        6 => result.push(vec![checking_square_num, 6]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 右からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square - 9;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square + 9;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 左からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square + 9;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square - 9;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
+  // 下からの王手チェック
+  if owner == 1 {
+    let checking_square_num = king_square + 1;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 2 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  } else {
+    let checking_square_num = king_square - 1;
+    let checking_square = get_square(&board, checking_square_num);
+    if checking_square[1] == 1 {
+      match checking_square[0] {
+        5 => result.push(vec![checking_square_num, 5]),
+        7 => result.push(vec![checking_square_num, 7]),
+        9 => result.push(vec![checking_square_num, 9]),
+        10 => result.push(vec![checking_square_num, 10]),
+        11 => result.push(vec![checking_square_num, 11]),
+        12 => result.push(vec![checking_square_num, 12]),
+        13 => result.push(vec![checking_square_num, 13]),
+        14 => result.push(vec![checking_square_num, 14]),
+        _ => (),
+      }
+    }
+  }
   result
 }
