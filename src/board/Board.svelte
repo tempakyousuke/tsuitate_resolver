@@ -1,14 +1,14 @@
 <script lang="ts">
-  import type { Game } from '../game/game';
-  import Caps from './Caps.svelte';
-  import BoardPiece from './BoardPiece.svelte';
-  import PickupKoma from './PickupKoma.svelte';
-  import { WHITE, BLACK } from '../game/constant';
-  import { createEventDispatcher } from 'svelte';
-  import SquareFill from './SquareFill.svelte';
+  import type { Game } from "../game/game";
+  import Caps from "./Caps.svelte";
+  import BoardPiece from "./BoardPiece.svelte";
+  import PickupKoma from "./PickupKoma.svelte";
+  import { WHITE, BLACK } from "../game/constant";
+  import { createEventDispatcher } from "svelte";
+  import SquareFill from "./SquareFill.svelte";
 
   export let game: Game;
-  export let className = '';
+  export let className = "";
   export let selectingCap: GAME.SelectingCap | null = null;
   export let selectingSquare: number | null = null;
   export let showPickup = false;
@@ -18,25 +18,17 @@
 
   let capRef;
   let boardRef;
-  let boardWidth;
-  let boardHeight;
-  let edgeWidth;
-  let edgeHeight;
-  let squareHeight;
-  let squareWidth;
+  let boardWidth: number;
+  let boardHeight: number;
   let rect;
   let boardPositionX;
   let boardPositionY;
   let capPositionX;
 
   const dispatch = createEventDispatcher();
-  $: if (boardHeight) {
+  $: if (boardRef) {
     const oldSquareWidth = squareWidth ?? 0;
-    edgeWidth = boardWidth * 0.01;
-    edgeHeight = boardHeight * 0.013;
     rect = boardRef.getBoundingClientRect();
-    squareWidth = (boardWidth - edgeWidth * 2) / 9;
-    squareHeight = (boardHeight - edgeHeight * 2) / 9;
     boardPositionX = rect.left + window.pageXOffset;
     boardPositionY =
       rect.top + window.pageYOffset + squareWidth - oldSquareWidth;
@@ -50,6 +42,11 @@
     edgeWidth,
     edgeHeight,
   };
+
+  $: edgeWidth = boardWidth * 0.01;
+  $: edgeHeight = boardHeight * 0.01;
+  $: squareWidth = (boardWidth - edgeWidth * 2) / 9;
+  $: squareHeight = (boardHeight - edgeHeight * 2) / 9;
 
   const onBoardClick = (evt) => {
     evt.stopPropagation();
@@ -76,7 +73,7 @@
       return;
     }
     const calcSq = reverse ? 80 - sq : sq;
-    dispatch('board', calcSq);
+    dispatch("board", calcSq);
   };
 
   const upperCapProps = {
@@ -109,6 +106,8 @@
       on:cap
       {reverse}
     />
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       class="relative mx-auto mt-1"
       bind:this={boardRef}
