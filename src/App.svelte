@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { SvelteToast } from '@zerodevx/svelte-toast';
-  import Position from './board/Position.svelte';
-  import { Game } from './game/game';
-  import { invoke } from '@tauri-apps/api/tauri';
+  import { SvelteToast } from "@zerodevx/svelte-toast";
+  import Position from "./board/Position.svelte";
+  import { Game } from "./game/game";
+  import { invoke } from "@tauri-apps/api/tauri";
 
   const game = new Game();
   game.tsumeInitialize();
 
   const resolve = async () => {
-    const res = await invoke('resolve', {
+    const res = await invoke("resolve", {
       blackCap: game.rustInputBlackCap,
       whiteCap: game.rustInputWhiteCap,
       board: game.rustInputBoard,
