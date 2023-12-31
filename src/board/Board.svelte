@@ -23,7 +23,6 @@
   let rect;
   let boardPositionX;
   let boardPositionY;
-  let capPositionX;
 
   const dispatch = createEventDispatcher();
   $: if (boardRef) {
@@ -32,8 +31,6 @@
     boardPositionX = rect.left + window.pageXOffset;
     boardPositionY =
       rect.top + window.pageYOffset + squareWidth - oldSquareWidth;
-    const capRect = capRef.getBoundingClientRect();
-    capPositionX = capRect.left + window.pageXOffset;
   }
 
   $: size = {
