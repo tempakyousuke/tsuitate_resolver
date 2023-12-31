@@ -16,22 +16,12 @@
   export let fillSquare = false;
   export let reverse = false;
 
-  let capRef;
-  let boardRef;
+  let capRef: Caps;
+  let boardRef: HTMLDivElement;
   let boardWidth: number;
   let boardHeight: number;
-  let rect;
-  let boardPositionX;
-  let boardPositionY;
 
   const dispatch = createEventDispatcher();
-  $: if (boardRef) {
-    const oldSquareWidth = squareWidth ?? 0;
-    rect = boardRef.getBoundingClientRect();
-    boardPositionX = rect.left + window.pageXOffset;
-    boardPositionY =
-      rect.top + window.pageYOffset + squareWidth - oldSquareWidth;
-  }
 
   $: size = {
     squareWidth,
@@ -40,10 +30,16 @@
     edgeHeight,
   };
 
+  $: rect = boardRef?.getBoundingClientRect();
+
   $: edgeWidth = boardWidth * 0.01;
   $: edgeHeight = boardHeight * 0.01;
   $: squareWidth = (boardWidth - edgeWidth * 2) / 9;
   $: squareHeight = (boardHeight - edgeHeight * 2) / 9;
+  $: oldSquareWidth = squareWidth ?? 0;
+  $: boardPositionX = rect?.left + window.pageXOffset;
+  $: boardPositionY =
+    rect?.top + window.pageYOffset + squareWidth - oldSquareWidth;
 
   const onBoardClick = (evt) => {
     evt.stopPropagation();
