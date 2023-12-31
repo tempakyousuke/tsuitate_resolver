@@ -41,7 +41,7 @@
   $: boardPositionY =
     rect?.top + window.pageYOffset + squareWidth - oldSquareWidth;
 
-  const onBoardClick = (evt) => {
+  const onBoardClick = (evt: PointerEvent) => {
     evt.stopPropagation();
     const offsetX = evt.pageX - boardPositionX - edgeWidth;
     const offsetY = evt.pageY - boardPositionY - edgeHeight;
