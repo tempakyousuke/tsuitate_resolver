@@ -37,9 +37,8 @@
   $: squareWidth = (boardWidth - edgeWidth * 2) / 9;
   $: squareHeight = (boardHeight - edgeHeight * 2) / 9;
   $: oldSquareWidth = squareWidth ?? 0;
-  $: boardPositionX = rect?.left + window.pageXOffset;
-  $: boardPositionY =
-    rect?.top + window.pageYOffset + squareWidth - oldSquareWidth;
+  $: boardPositionX = rect?.left + window.scrollX;
+  $: boardPositionY = rect?.top + window.scrollY + squareWidth - oldSquareWidth;
 
   const onBoardClick = (evt: PointerEvent) => {
     evt.stopPropagation();
