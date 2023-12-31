@@ -46,8 +46,8 @@
     const offsetX = evt.pageX - boardPositionX - edgeWidth;
     const offsetY = evt.pageY - boardPositionY - edgeHeight;
 
-    let column: number;
-    let row: number;
+    let column = 0;
+    let row = 0;
 
     for (let i = 0; i < 9; i++) {
       if (i * squareWidth <= offsetX && offsetX < (i + 1) * squareWidth) {
