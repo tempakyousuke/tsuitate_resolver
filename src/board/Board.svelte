@@ -40,7 +40,7 @@
   $: boardPositionX = rect?.left + window.scrollX;
   $: boardPositionY = rect?.top + window.scrollY + squareWidth - oldSquareWidth;
 
-  const onBoardClick = (evt: PointerEvent) => {
+  const onBoardClick = (evt: MouseEvent) => {
     evt.stopPropagation();
     const offsetX = evt.pageX - boardPositionX - edgeWidth;
     const offsetY = evt.pageY - boardPositionY - edgeHeight;
